@@ -1,0 +1,9 @@
+touser='ofpejt-CVN0b-QE-xjUz0dZiuTeE'
+appid='wx1ac674deefe5da12'
+secrect='5bc1c8a130cd1739bbae9e0234b98807'
+# template_id='Kr2d1e1VjrmJ6fZW4owG3-_QpYVmfZXNqte9fqFb1CQ'
+template_id='NhAjvkKejw9ZFACNCjQCFNhsrsui0tKA5HGl7HetWZQ'
+#url='http://weixin.qq.com/download'
+file_name='log.txt'
+# file_name='log.txt'
+color="#173177"

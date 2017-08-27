@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>教程提交</title>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/addedit.js">
+</script>
+    <script type="application/javascript" >
+        var csrfmiddlewaretoken="{{ csrf_token }}";
+//        $.ajaxSetup({
+//            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+//        });
+    </script>
+    </head>
+    <body><p>请按顺序选择，确定无误后点击“提交”</p>
+        <ul id="adds">
+        	{% for k, v in addinfos %}
+            <li id="{{forloop.counter}}" title="{{v}}">{{k}}</li>
+            {% endfor %}
+        </ul>
+        <button id="add">提交</button>
+    </body>
+</html>
