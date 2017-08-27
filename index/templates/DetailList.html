@@ -1,0 +1,35 @@
+{% extends 'w_base.html' %}
+{% block title %} 详细{% endblock %}
+{% block container %}
+<div class="">
+    <div class="weui_pull">
+        <p class="weui_pull_tips">
+            <i class="weui_pull_loading"></i>
+            <span>下拉刷新</span>
+        </p>
+
+        <div class="weui_panel weui_panel_access">
+            <div class="weui_panel_bd">
+                {% for detail in object_list %}
+                <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
+                    <div class="weui_media_hd">
+                        <img class="weui_media_appmsg_thumb"
+                             src=""
+                             alt="">
+                    </div>
+                    <div class="weui_media_bd">
+                        <h4 class="weui_media_title">{{ detail.title }} </h4>
+
+                        <a class="weui_media_desc" href="{% url 'index:detail' detail.pk %}">{{ detail.title }}</a>
+                        <p class="weui_media_desc">{{ detail.add_datetime }}</p>
+                        <p class="weui_media_desc">{{ detail.user_id }}</p>
+                        <p class="weui_media_desc">{{ detail.order_id }}</p>
+                    </div>
+                </a>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

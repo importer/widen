@@ -1,0 +1,51 @@
+{% extends 'w_base.html' %}
+{% block title %} 教程INFO{% endblock %}
+{% block container %}
+    <div class="page">
+        <div class="page__bd">
+            <h2 align="center">教程INFO</h2>
+        </div>
+        <div class="weui_cells ">
+            {% for field in form %}
+                <div class="weui_cell">
+                <div class="weui_cell__hd">
+                <label class="weui_label">{{ field.label }}</label>
+                </div>
+                <div class="weui_cell__bd">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="weui_cells_title" style="display:none;color:red;" align="center" id="a_error"></div>
+        </div>
+            <div class="weui_btn-area">
+                <a class="weui_btn weui_btn_primary" href="javascript:" id="showTooltips">确定</a>
+            </div>
+        </div>
+    <!--BEGIN toast-->
+<div id="toast_success" style="display: none;">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toast">
+        <i class="weui_icon_toast"></i>
+        <p class="weui_toast_content">操作成功</p>
+    </div>
+</div>
+<div id="toast_fail" style="display: none;">
+    <div class="weui_mask_transparent"></div>
+    <style>
+        .weui_icon_msg:before {
+            font-size: 55px;
+            margin-top:15px;
+        }
+    </style>
+    <div class="weui_toast">
+        <i class="weui_icon_msg weui_icon_warn"></i>
+        <p class="weui_toast_content">操作失败，请稍后重试</p>
+    </div>
+</div>
+        <div class="page__ft">
+            <a href="#"></a>
+        </div>
+    </div>
+
+{% endblock %}

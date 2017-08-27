@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from urllib import quote
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -36,6 +37,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +46,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'debug_toolbar',
     'welcome',
+    'index',
+    'wechat',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,6 +106,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -110,3 +129,16 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+###################################wechat setting###############################
+APP_URL = "https://widen-zhouzw.rhcloud.com"
+APP_ID = "wx1ac674deefe5da12"
+APP_SECRET = "5bc1c8a130cd1739bbae9e0234b98807"
+AES_KEY = "klsdjfkljlksdf"
+WX_TOKEN = "python"
+MARKET_NUMBER = "123123123"
+SCOPE = 'snsapi_userinfo'
+URL = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid={APPID}&redirect_uri={REDIRECT_URL}&response_type=code&scope={SCOPE}&state=123&connect_redirect=1#wechat_redirect'
+REDIRECT_URL = URL.format(APPID=APP_ID, REDIRECT_URL=quote(APP_URL), SCOPE=SCOPE)
+################################################################################
