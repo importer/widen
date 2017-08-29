@@ -11,7 +11,7 @@ class WeChatServer(models.Model):
     server_ip_list = models.CharField(default="",blank=True,max_length=1000)
 
     def get_wechat_server_ip_list(self):
-        from wechat.models.basic import *
+        from wechat.models.basic import AccessToken
         access_token = AccessToken.objects.get(id=1)
         token = access_token.get_access_token()
         url = "https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=" + token

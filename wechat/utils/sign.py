@@ -21,12 +21,12 @@ class Sign:
 
     def sign(self):
         string = '&'.join(['%s=%s' % (key.lower(), self.ret[key]) for key in sorted(self.ret)])
-        print 'staring:'+string
+        print ('staring:'+string)
         self.ret['signature'] = hashlib.sha1(string).hexdigest()
-        print  'signature:'+self.ret['signature']
+        print  ('signature:'+self.ret['signature'])
         return self.ret
 
 
 if __name__ == '__main__':
     sign = Sign('jsapi_ticket', 'http://example.com')
-    print sign.sign()
+    print (sign.sign())

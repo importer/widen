@@ -133,9 +133,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ###################################wechat setting###############################
 APP_URL = "https://widen-zhouzw.rhcloud.com"
-APP_ID = "wx1ac674deefe5da12"
-APP_SECRET = "5bc1c8a130cd1739bbae9e0234b98807"
-AES_KEY = "klsdjfkljlksdf"
+APP_ID = os.getenv('APP_ID','')
+APP_SECRET = os.getenv('APP_SECRET','')
+AES_KEY = os.getenv('AES_KEY','')
 WX_TOKEN = "python"
 MARKET_NUMBER = "123123123"
 SCOPE = 'snsapi_userinfo'

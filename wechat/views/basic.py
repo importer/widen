@@ -92,7 +92,7 @@ def send_template(request):
     url = temp_data.url
     # print data
     data = json.loads(data)
-    print url
+    print (url)
     wechat_instance.send_template_message(openid, tid_date.template_id, data, url)
     return HttpResponse('success')
 

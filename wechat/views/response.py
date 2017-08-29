@@ -125,7 +125,7 @@ def EventResponse(message,wechat_instance):
         return wechat_instance.response_text(content=reply_text)
     elif message.type == 'click':  # 自定义菜单点击事件
         try:
-            print  message.source
+            print(message.source)
             sendmessage = templatesend.SendMessage
             return_mes = sendmessage.objects.all().filter(author=message.source, status='0').order_by(
                 'publish')[:5]
@@ -143,10 +143,10 @@ def EventResponse(message,wechat_instance):
             # sendmessage.objects.filter(pk__in=list(mmes)).update(status='2')
             return wechat_instance.response_news(articles)
         except Exception as e:
-            print e
+            print (e)
     elif message.type == 'view':  # 自定义菜单跳转链接事件
         key = message.key
-        print message.key
+        print (message.key)
         Menu_Event = basic.MenuEvent(to_user_name=message.target,
                                      from_user_name=message.source,
                                      create_time=message.time,
@@ -158,7 +158,7 @@ def EventResponse(message,wechat_instance):
         return wechat_instance.response_text(content=reply_text)
     elif message.type == 'templatesendjobfinish':  # 模板消息事件
         status = message.status
-        print message.MsgID
+        print (message.MsgID)
         Template_Event = basic.TemplateEvent(to_user_name=message.target,
                                              from_user_name=message.source,
                                              create_time=message.time,

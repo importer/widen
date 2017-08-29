@@ -1,7 +1,7 @@
 __author__ = 'zhouzw'
 from django.conf.urls import url
 from  django.contrib.auth import views as auth_views
-import views
+from  .import views
 urlpatterns = [
     # login / logout urls
     url(r'^$', views.dashboard, name='dashboard'),

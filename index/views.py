@@ -140,7 +140,7 @@ def addUserSubmit(request):
 
 def get_info(request):
     if request.session.get('openid', False):
-        print request.session.get('openid', False)
+        print (request.session.get('openid', False))
         WxDetaile = Wxuser.objects.get(openid=request.session.get('openid', False))
         re_detail = {'city': WxDetaile.city.encode('utf-8'),
                      'country': WxDetaile.country.encode('utf-8'),
@@ -158,7 +158,7 @@ def get_info(request):
     wx = WeiXinLogin(code, state)
     UserDetaile = wx.get_detail()
     request.session['openid'] = UserDetaile.get('openid')
-    print UserDetaile
+    print (UserDetaile)
     html = '<html><body><img src="%s"  alt="%s" />%s </body></html>' % (
         UserDetaile.get('headimgurl'), UserDetaile.get('openid'), UserDetaile.get('nickname'))
     return HttpResponse(html)

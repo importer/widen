@@ -45,15 +45,15 @@ def generate_create_base_menu_button_json():  # 生成基础功能的button,clic
 
 
 def get_follower_info():
-    from wechat.models.basic import *
+    from wechat.models.basic import AccessToken
     url = """https://api.weixin.qq.com/cgi-bin/user/get?access_token={access_token}&next_openid="""
     a = AccessToken.objects.get(pk=1)
     access_token = a.get_access_token()
     new_url = url.format(access_token=access_token)
-    print new_url
+    print (new_url)
     r = requests.get(new_url)
     json_return = r.json()
-    print r.json()
+    print (r.json())
     total_user_count = json_return['total']
     a_count_first = total_user_count / 1000
     if total_user_count > 1000:
@@ -68,11 +68,11 @@ def get_follower_info():
 
 
 def get_temp_qr_code():
-    from wechat.models.basic import *
+    from wechat.models.basic import AccessToken
     a = AccessToken.objects.get(pk=1)
     access_token = a.get_access_token()
     url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=" + access_token
-    print url
+    print (url)
     payload = {
         'expire_seconds': 2592000,
         'action_name': "QR_SCENE",
@@ -93,11 +93,11 @@ def get_temp_qr_code():
 
 
 def get_pergmanent_qr_code():
-    from wechat.models.basic import *
+    from wechat.models.basic import AccessToken
     a = AccessToken.objects.get(pk=1)
     access_token = a.get_access_token()
     url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=" + access_token
-    print url
+    print (url)
     payload = {
         'expire_seconds': 2592000,
         'action_name': "QR_LIMIT_SCENE",
@@ -118,7 +118,7 @@ def get_pergmanent_qr_code():
 
 
 def long_url_to_short(long_url):
-    from wechat.models import *
+    from wechat.models import AccessToken
     a = AccessToken()
     access_token = a.get_access_token()
     url = "https://api.weixin.qq.com/cgi-bin/shorturl?access_token=" + access_token
@@ -129,4 +129,4 @@ def long_url_to_short(long_url):
     }
     r = requests.post(url,data=json.dumps(payload))
     json_return = r.json()
-    print json_return
+    print (json_return)
