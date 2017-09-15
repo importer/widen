@@ -2,7 +2,7 @@
     // function myBookmarklet() {
     //     var url = 'http://127.0.0.1:8000/wechat/checkbox/';
     // var url = 'http://widen-zhouzw.rhcloud.com/wechat/checkbox/';
-    var url = window.location.host;
+    var url = "http://widen-widen.a3c1.starter-us-west-1.openshiftapps.com/wechat/checkbox/";
     var allText = '<form name="input" action="' + url + '" method="GET">';
     var imgWindow;
     var arr = document.links;
