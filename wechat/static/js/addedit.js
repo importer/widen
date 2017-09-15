@@ -35,7 +35,7 @@ $(document).ready(function(){
          var data = JSON.stringify(values);  
   	console.log(data);
 	// var url="http://127.0.0.1:8000/wechat/checkbox/";
-	var url="http://widen-zhouzw.rhcloud.com/wechat/checkbox/";
+	var url="http://"+window.location.host+"/wechat/checkbox/";
 	$.post(url, {"csrfmiddlewaretoken":csrfmiddlewaretoken,"data":data}, function (data) {alert(data);window.close();});
 	// $.post(url, {"csrfmiddlewaretoken":getCookie('csrftoken')}, function (data) {alert(data);});
   });
