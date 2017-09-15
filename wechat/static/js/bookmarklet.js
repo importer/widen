@@ -1,12 +1,12 @@
 (function () {
     // function myBookmarklet() {
     //     var url = 'http://127.0.0.1:8000/wechat/checkbox/';
-    var url = 'http://widen-zhouzw.rhcloud.com/wechat/checkbox/';
+    // var url = 'http://widen-zhouzw.rhcloud.com/wechat/checkbox/';
+    var url = window.location.host;
     var allText = '<form name="input" action="' + url + '" method="GET">';
     var imgWindow;
     var arr = document.links;
     var re1 = /http(s)?:\/\//;
-    var url = window.location.host;
     for (var i = 0; i < arr.length; i++) {
         var href = arr[i].href;
         var text = arr[i].text;
